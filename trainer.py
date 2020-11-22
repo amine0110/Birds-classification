@@ -160,6 +160,6 @@ def train(path_to_data, batch_size, epochs):
 
 if __name__ == "__main__":
 
-    path_to_data = '/home/pycad/Downloads/images'
-    path_to_save_model = '/home/pycad/Documents/Project/code/model'
+    path_to_data = 'The path of your images'
+    path_to_save_model = 'The path where you want to save your model'
     train(path_to_data, 2, 20)
