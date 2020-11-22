@@ -3,7 +3,7 @@ import tensorflow as tf
 import os
 import numpy as np
 
-# Cette fonction nous aide pour construire la liste qui contient les noms des oiseaux.
+# This function will help us to create a function that contains the birds names
 def get_birds_names(path_to_folders):
     birds_names = os.listdir(path_to_folders)
     birds_names.sort()
