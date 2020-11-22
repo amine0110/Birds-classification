@@ -9,13 +9,14 @@ from load_image import predict
 
 
 
-# Cette fonction juste pour qlq modification sur le button
+# This functions will control the hover color in the upload button
 def on_enter(bg):
     button['background'] = bg
 
 def on_leave(bg):
     button['activebackground'] = bg
 
+# This function will clear all the the item in the frame (in this case it will delete the image displayed)
 def clear():
     for item in zone_image.winfo_children():
         item.destroy()
@@ -42,7 +43,7 @@ def open_pic():
                 title = "Select file",
                 filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
     
-    # Après qu'on a lu le path de l'image qu'on veut prédire, il faut assurer que le path n'est pas vide
+    # After that we read the put of the image that we want to predict we need to check if the path is true
     if path_image:
         clear()
         
@@ -66,19 +67,19 @@ def cherche():
 if __name__ == "__main__":
     
 
-    # La configuration de la face de notre application
+    # The configuration of our application
 
-    bg = '#002929'                      # La colour du background de tous les élements de notre app
-    root = Tk()                         # La création d'un fenetre vide
-    root.geometry("500x700")            # Initiation de longuer et largeur de l'app
-    root.title('WHAT IS YOUR BIRD!')    # Pour donner un nom de l'application
-    root.configure(bg=bg)               # Ici on a donné la couleur du background a notre application
-    root.resizable(width=0, height=0)   # Pour bloquer toutes les redimensions
+    bg = '#002929'                      # The unique background color for all the items in the application
+    root = Tk()                         # Here we create the empty application
+    root.geometry("500x700")            # Here we give the initial values for the dimensions
+    root.title('WHAT IS YOUR BIRD!')    # Her we give the title of the app
+    root.configure(bg=bg)               # Here we gived the background color to our application background
+    root.resizable(width=0, height=0)   # Here we blocked the the dimensions so that we can't change it after
 
-    # On va utiliser ce logo comme un bouton pour ouvrir l'image qu'on va la prédire.
+    # We will use this logo as a button to open the images for the prediction
     logo = PhotoImage(file='logo_s.png') 
 
-    # Juste un petit titre au début de l'app.
+    # Here we have a title inside the app
     title = Label(root, 
                 text="We will tell you your bird's name", 
                 font="agencyFB 20 bold", 
@@ -87,7 +88,7 @@ if __name__ == "__main__":
 
     title.pack(pady=(10,0))
 
-    # C'est le bouton pour ouvrir l'image
+    # This is the button to choose the images
     button = Button(root, 
                 image=logo, 
                 bg=bg, 
@@ -98,16 +99,16 @@ if __name__ == "__main__":
     button.bind("<Enter>", on_enter(bg))
     button.bind("<Leave>", on_leave(bg))
 
-    # Maintenant on a déclaré cette frame pour la mette comme zone pour les images aperçus (qu'on veut savoir leur nom).
+    # This frame is for the image
     zone_image = Frame(root, width=300, height=300, bg=bg)
     zone_image.pack(pady=(30,0))
     zone_image.propagate(0)
 
-    # Cette zone c'est pour mettre les messages d'erreu, d'attand et de résultat.
+    # This frame is to dispaly the messages
     zone_resultat = Frame(root, width=300, height=50, bg=bg)
     zone_resultat.pack(pady=(30,0))
 
-    # Le message
+    
     global L_message
     L_message = Label(zone_resultat, 
                 text="Choose your image", 
@@ -117,7 +118,7 @@ if __name__ == "__main__":
     L_message.pack()
 
 
-    # Bouton pour prédire
+    # Prediction button
     predict_b = Button(root, 
                 text="PREDICT", 
                 font="agencyFB 25 bold", 
