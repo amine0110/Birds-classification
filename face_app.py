@@ -22,19 +22,18 @@ def clear():
         item.destroy()
 
 def clear_result():
-    for item in zone_resultat.winfo_children():
+    for item in result_zone.winfo_children():
         item.destroy()
 
 def message(operation):
-    if operation == 0:
-        #clear_result()
+    if operation == 0
         L_message.config(text="You can predict now")
         
         
 
 def open_pic():
     
-    global image_afficher
+    global image_printed
     global path_image
 
     path_image = None
@@ -47,16 +46,16 @@ def open_pic():
     if path_image:
         clear()
         
-        image_choisi = image.open(path_image)
-        image_choisi = image_choisi.resize((300,300), image.ANTIALIAS)
-        image_afficher = ImageTk.PhotoImage(image=image_choisi)
+        image_chosen = image.open(path_image)
+        image_chosen = image_chosen.resize((300,300), image.ANTIALIAS)
+        image_printed = ImageTk.PhotoImage(image=image_chosen)
 
-        image_dans_frame = Label(zone_image, image=image_afficher)
-        image_dans_frame.pack()
+        image_in_frame = Label(zone_image, image=image_chosen)
+        image_in_frame.pack()
         message(0)
 
 
-def cherche():
+def search():
     if path_image:
         p = predict(path_image)[0]
         proba = predict(path_image)[1]
@@ -104,13 +103,13 @@ if __name__ == "__main__":
     zone_image.pack(pady=(30,0))
     zone_image.propagate(0)
 
-    # This frame is to dispaly the messages
-    zone_resultat = Frame(root, width=300, height=50, bg=bg)
-    zone_resultat.pack(pady=(30,0))
+    # This frame for displaying the messages
+    result_zone = Frame(root, width=300, height=50, bg=bg)
+    result_zone.pack(pady=(30,0))
 
     
     global L_message
-    L_message = Label(zone_resultat, 
+    L_message = Label(result_zone, 
                 text="Choose your image", 
                 bg=bg, 
                 font="none 15 bold")
@@ -124,7 +123,7 @@ if __name__ == "__main__":
                 font="agencyFB 25 bold", 
                 borderwidth=0, 
                 width=10, 
-                command=cherche)
+                command=search)
 
     predict_b.pack(pady=(40,0))
 
