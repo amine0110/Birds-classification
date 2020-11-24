@@ -11,3 +11,6 @@ So this project is devided in three parts:
 
 - And the last part is to deploy the model in a desktop application built using Tkinter and Python.
 
+You can find the DATASET that we used in Kaggle using this link:
+https://www.kaggle.com/gpiosenka/100-bird-species? 
+
