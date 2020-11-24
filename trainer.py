@@ -96,7 +96,7 @@ def train(path_to_data, batch_size, epochs):
 
     path_train_data = os.path.join(path_to_data, 'train')
     path_val_data = os.path.join(path_to_data, 'valid')
-    path_eval_data = os.path.join(path_to_data, 'test')
+    path_eval_data = os.path.join(path_to_data, 'eval')
 
     total_train_imgs = get_number_of_imgs_inside_folder(path_train_data)
     total_val_imgs = get_number_of_imgs_inside_folder(path_val_data)
