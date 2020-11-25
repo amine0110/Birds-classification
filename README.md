@@ -14,3 +14,6 @@ So this project is devided in three parts:
 You can find the DATASET that we used in Kaggle using this link:
 https://www.kaggle.com/gpiosenka/100-bird-species? 
 
+This is an image of how the final desktop application looks :)
+![alt text](https://github.com/amine0110/Birds-classification/blob/main/app_example.png)
+
